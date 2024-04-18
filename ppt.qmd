@@ -1,0 +1,487 @@
+---
+title: "Técnicas de optimización para visualización en mapas 🗺️"
+author: "Raúl Jiménez Ortega | [@hhkaos](https://x.com/hhkaos)"
+format: 
+  revealjs:
+    theme: [dark, custom.scss]
+---
+
+
+
+
+# &nbsp;{.center-title-slide}
+
+::: {.center-xy}
+![](./imgs/commit-conf-logo-white.png){width="250"}
+:::
+
+::: {.notes}
+Quería empezar contandoos algo que me pasó por estas fechas hacer 10 años,marzo/abril de 2014, nada más empezar mi nuevo trabajo en mapas. Se acercaba la final de la champios league (Madrid - Atlético) ...
+:::
+
+## 24/05/14 {.center-title-slide .smallerTitle}
+
+::: {.center-xy}
+
+{{< video https://www.youtube.com/embed/DF6XU5Rp9qk?si=7ZXrRYYBEEeRZh9Y  width="840" height="472">}}
+
+:::
+
+
+::: {.notes}
+Geoporra  (2014) -> PostgreSQL
+Final de la Champions League 
+Contar la historia. Yo nuevo en mapas, vamos a crear unos índices espaciales, postgres.... petaba
+
+Periódico, página de clasificados, b2b, agencias
+:::
+
+<!-- ## 
+
+[![Elecciones 2015 | Resolviendo la noche electoral con AWS + Node js + ..](./imgs/resolviendo-la-noche-electoral.png)](https://www.youtube.com/watch?v=XLcl-zQxwTo){width="550"}
+
+::: {.notes}
+Resultados electorales
+Es relativamente frecuente que a las 8:31PM cuando se cierran las urnas y empieza el recuento de votos principales periódicos tengan cargas brutales y que se vengan abajo.
+::: -->
+
+<!-- ## Elecciones municipales 2019
+
+
+[![Elecciones municipales](https://esri-es.github.io/arcgis-gifs/other/Votos%20rentas%20escuelas%20o%20turistas%20nueve%20mapas%20muy%20detallados%20de%202019%20elpais.gif)](https://elpais.com/politica/2019/12/30/actualidad/1577728404_034592.html){width="550"}
+
+::: {.notes}
+Periodista de datos
+::: -->
+
+# Raúl Jiménez Ortega | [@hhkaos](https://x.com/hhkaos) {.smallerTitle}
+
+::: {.incremental}
+
+* De Nerja (Málaga)☀️⛴️ ; viviendo en Almería 🌵😎
+* Padre de familia 👨‍👩‍👦‍👦
+* [Geek](https://www.rauljimenez.info/docs/about-me/my-journey) 👨🏻‍💻
+* Product Engineer @ [Esri](https://developers.arcgis.com/) 🥑🇺🇸
+* 10 años en _geo_ 🗺️🌍
+
+:::
+
+![](./imgs/raul-jimenez.png){.absolute bottom=0 right=50 width="250"}
+
+# ¿Qué podemos optimizar? {.strongBg background-image="./imgs/leaflet-large-dataset-plain-blur.png"  background-size="cover"}
+
+## 1. Tiempos de carga inicial
+
+![](./imgs/initial-loading-time-comparison.gif){.fullWidth}
+
+<!-- {{< video ./video/initial-loading-time-comparison.mp4 >}} -->
+
+## 2. Fluidez de la interacción {.smallerTitle}
+
+[![](./imgs/low-fps-rendering.gif){.nostretch fig-align="center"}](https://esridevevents.github.io/arcgis-platform-location-services-for-developers-2023/leaflet-geojson.html)
+
+::: {.notes}
+FPS
+Visor web usando &lt;svg&gt; para pintar ~35K municipios de Francia <br/>(45MB de JSON; 2.10M vértices)
+:::
+
+## 3. Costes
+
+![](./imgs/basemaps-pricing-models.png)
+
+> **Fuente**: [Intro a los mapas base y ArcGIS Basemaps (v2)](https://www.youtube.com/watch?v=SBf8d6PeJMQ&t=613s)
+
+# TECNOLOGÍAS {.strongBg background-image="./imgs/state-of-the-art-mapping.png"  background-size="cover"}
+
+Estado del arte
+
+## Mapas estáticos {.smaller}
+
+::: {.panel-tabset}
+
+### Ejemplos
+
+{{< video ./video/static-maps-use-cases.mp4 >}}
+
+### Código
+
+[![](./imgs/static-map.jpg)](./imgs/static-map.jpg)
+
+
+<!-- ### Cuándo
+
+* ✅ **ADECUADO**
+  * En listados, páginas de alto tráfico, compartir en medios que no soportar formatos avanzados (redes sociales, correo, etc.), ...
+  * Para mejorar la percepción de tº de carga inicial
+* ❌ **DESACONSEJADO**
+  * Cuando se necesita intereractuar/explorar el mapa -->
+
+### Tecnologías
+
+* [ArcGIS Print Service](https://developers.arcgis.com/javascript/latest/sample-code/widgets-print/) (_new API coming soon_)
+* [Geoapify Static Maps API](https://www.geoapify.com/static-maps-api)
+* [Google Map Static API](https://developers.google.com/maps/documentation/maps-static/overview)
+* [Mapbox Static Images API](https://docs.mapbox.com/api/maps/static-images/)
+* [MapTiler API](https://www.maptiler.com/cloud/static-maps/)
+* [Mapquest Static Map API](https://developer.mapquest.com/documentation/api/static-map/)
+* [Thunderforest Static Map API](https://www.thunderforest.com/docs/static-maps-api/)
+* ...
+
+::: {.notes}
+Las posibilidades varian entre proveedores
+:::
+
+:::
+
+## Mapas dinámicos {.smaller}
+
+::: {.panel-tabset}
+
+### Ejemplo
+
+<iframe src="demos/amcharts-demo/dist/" style="width:100%;height:520px"></iframe>
+
+### Código
+
+[![](./imgs/svg-map.png)](./imgs/svg-map.png)
+
+### Tecnologías
+
+* [amCharts](https://www.amcharts.com/demos/#maps)
+* [Charts.js](https://www.sgratzl.com/chartjs-chart-geo/examples/)
+* [D3.js geo](https://observablehq.com/@d3/gallery#maps)
+* [Highcharts](https://www.highcharts.com/demo#highcharts-maps-demo-general)
+* [jVectorMap](https://jvectormap.com/examples/world-gdp/)
+* [Leaflet](https://leafletjs.com/)
+* [Raphael.js (mapael)](https://www.vincentbroute.fr/mapael/)
+* [SimpleMaps](https://simplemaps.com/resources/svg-maps)
+* ...
+
+
+
+:::
+
+## Mapas interactivos {.smaller}
+
+::: {.notes}
+usan una combinación de canvas y SVG (Limitados a 2D. )
+Hasta decenas de miles de puntos, cientos/miles de polígonos
+combinar con herramientas de análisis espacial en el cliente (filtros espaciales), etc.
+Buscador de direcciones. Mayores extensiones. Todos permiten mapas de fondo, mapas satélite, etc.
+:::
+
+::: {.panel-tabset}
+
+### Ejemplo
+
+<iframe src="https://www.ign.es/iberpix/visor/" style="width:100%;height:520px"></iframe>
+
+### Código
+
+![](./imgs/canvas2d-map.jpg)
+
+### Tecnologías
+
+* [ArcGIS JS SDK 3.x](https://developers.arcgis.com/javascript/3/) (_deprecated_)
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)
+* [Leaflet](https://leafletjs.com/)<sup>*</sup>
+* [OpenLayers](https://openlayers.org/)
+
+:::
+
+## Mapas inmersivos {.smaller}
+
+::: {.notes}
+WebGL/OpenGL, mayor número de elementos, efectos tipo photoshop,  personalizar cambiar el estilo del mapa, rotarlo, 3D,
+:::
+
+::: {.panel-tabset}
+
+### Ejemplo
+
+{{< video ./video/inmerse-dataviz.mp4 >}}
+
+### Código
+
+{{< video ./video/webgl-canvas.mp4 >}}
+
+### Tecnologías
+
+* [ArcGIS Maps SDK for JavaScript](https://js.arcgis.com/)
+* [Azure Maps](https://samples.azuremaps.com/)
+* [CesiumJS](https://cesium.com/platform/cesiumjs/)
+* [Deck.gl](https://docs.carto.com/carto-for-developers/carto-for-deck.gl)
+* [HERE](https://developer.here.com/develop/javascript-api)
+* [Kepler.gl](https://kepler.gl/)
+* [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/)
+* [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
+* [TomTom Maps SDK Web JS](https://developer.tomtom.com/maps-sdk-web-js/overview/product-information/introduction)
+
+:::
+
+##  {background-color="white" background-image="./imgs/map-types-comparison-IMGs-SVG-Canvas-WebGL.png"  background-size="contain"}
+
+# TIEMPOS DE CARGA{.strongBg background-image="./imgs/title-loading-times.png"  background-size="cover"}
+
+Optimizando _datasets_ de cientos de miles o millones de datos y tiempos de respuesta del servidor
+
+## Reduce los _bytes_ enviados por la red{.smaller}
+
+![Ratio, tiempo de compresión y descompresión por algoritmo | Fuente: OpenCPU](./imgs/algorithm-compression-ratios-opencpu.png)
+
+## GeoJSON estándard ([RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946)){.smaller}
+
+![](./imgs/geojson-explained.png)
+
+## Reduce el tamaño del _dataset_{.smaller}
+
+![Relación entre el número de decimales de una coordenada y la precisión](./imgs/geojson-decimal-precision-in-madrid.jpg)
+
+:::{.tiny}
+> Y... por supuesto [no envíes propiedades que no necesites, elimina espacios, etc (uglify)](https://github.com/radical-data/reducegeojson)
+:::
+
+::: {.notes}
+Las coordenadas GeoJSON suelen tener por defecto una precisión extrema, a menudo con 15-17 decimales, lo que equivale a una escala atómica. Para la mayoría de las aplicaciones prácticas, se puede reducir la precisión de las coordenadas a unos 6 decimales, lo que equivale aproximadamente a una escala de 1 cm. Esto reduce el tamaño del archivo sin comprometer la usabilidad.
+:::
+
+## Polígonos o líneas{.smaller}
+
+::: {.panel-tabset}
+
+### TopoJSON
+
+![](./imgs/topojson-explained.png)
+
+### Convierte y simplifica
+
+<iframe src="https://mapshaper.org/" style="width:100%;height:520px"></iframe>
+
+:::
+
+## Trocea los datos{.smaller}
+
+::: {.notes}
+Data Chunking y visualizaciones sensibles a la escala
+:::
+
+::: {.panel-tabset}
+
+### Teselado
+
+![](./imgs/zoom-level-tiling.png)
+
+
+### FeatureLayer
+
+<iframe src="/demos/arcgis-tiles/arcgis-js-sdk-feature-layers.html"  style="width:100%;height:520px"></iframe>
+
+### Vector
+
+<iframe src="/demos/arcgis-tiles/arcgis-js-sdk-vt.html"  style="width:100%;height:520px"></iframe>
+
+### Raster
+
+<iframe src="/demos/arcgis-tiles/arcgis-js-sdk-raster.html"  style="width:100%;height:520px"></iframe>
+
+
+### Tecnologías
+
+* [ArcGIS Data Hosting](https://developers.arcgis.com/documentation/mapping-apis-and-services/data-hosting/)
+* [GeoServer](http://geoserver.org/)
+* [Mapbox Tiling Service](https://www.mapbox.com/mts)
+* [MapTiler GeoData Hosting](https://www.maptiler.com/cloud/geodata-hosting/)
+* [MapServer](https://mapserver.org/)
+* [Martin](https://github.com/maplibre/martin)
+* [Tegola](https://github.com/go-spatial/tegola)
+
+:::
+
+## Cachea, cachea, cachea!
+
+:::widthAutoCenter
+![](./imgs/memory-cache-meme.gif)
+:::
+
+## Crea índices espaciales{.smaller}
+
+![](./imgs/spatial-index.jpg)
+
+
+
+<!-- ## Streaming de datos -->
+
+
+# FLUIDEZ DE LA INTERACCIÓN {.strongBg background-image="./imgs/mike-lewis-headsmart-media-smooth-water-unsplash.jpg"  background-size="cover"}
+
+* Agrupación = _Clustering_ 🔍
+* Mapas de calor = _Heatmaps_ 🔥
+* "Contenerización" = _Binning_ 📦
+* Analisis en cliente = _Client-side analysis_ 📏📐
+
+::: {.notes}
+Optimizar la renderización/pintado (webgl, renderers)
+Reducir los tiempos de respuesta (usa la info en el browser)
+Usa WebGL para grandes cantidades de datos
+Mueve la máxima cantidad al cliente
+:::
+
+## Clustering 🔍 {.smaller}
+
+:::{.notes}
+para datos de tipo punto
+:::
+
+::: {.panel-tabset}
+
+### Intro
+
+{{< video ./video/before-after-clustering.mp4 >}}
+
+
+### Clase predominante
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurereduction-cluster-query/live/" style="width:100%;height:500px"></iframe>
+
+### Estadísticas
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurereduction-cluster-filter-slider/live/" style="width:100%;height:500px"></iframe>
+
+### Variables visuales
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurereduction-cluster-visualvariables/live/" style="width:100%;height:500px"></iframe>
+
+### Gráfico circular
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurereduction-cluster-pie-charts/live/" style="width:100%;height:500px"></iframe>
+
+:::
+
+## Heatmaps 🔥 {.smaller}
+
+::: {.panel-tabset}
+
+### Intro
+
+[![](./imgs/heatmap.jpg)](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/next-generation-heat-maps-mapviewer/)
+
+
+### Dinámico
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/visualization-heatmap-scale/live/" style="width:100%;height:500px"></iframe>
+
+### Estático
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/visualization-heatmap-static/live/" style="width:100%;height:500px"></iframe>
+
+### 3D
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/visualization-heatmap-scene/live/" style="width:100%;height:500px"></iframe>
+
+:::
+
+## Binning 📦  {.smaller}
+
+::: {.panel-tabset}
+
+### Intro
+
+<iframe src="https://developers.arcgis.com/javascript/latest/demo-apps/visualization-demos-high-density-binning-swipe-2ddd3e70b27990d90548d6e62d91d373.html" style="width:100%;height:500px"></iframe>
+
+### Simple
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurereduction-binning/live/" style="width:100%;height:500px"></iframe>
+
+### Estadísticas
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurereduction-binning-arcade-summary/live/" style="width:100%;height:500px"></iframe>
+
+:::
+
+## Haz todo lo que puedas en cliente {.smaller}
+
+::: {.panel-tabset}
+
+### Análisis espacial
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurelayerview-query-geometry/live/"  style="width:100%;height:500px"></iframe>
+
+:::
+
+:::{.notes}
+usando blending
+:::
+
+# COSTES  {.strongBg background-image="./imgs/fabian-blank-costs.jpg"  background-size="cover"}
+
+## Open data
+
+* [amCharts geodata](https://www.amcharts.com/dl/amcharts5-geodata/)
+* [ArcGIS Hub](hub.arcgis.com)
+* [Datos abiertos del Gobierno de España](https://datos.gob.es/es/)
+* [Free SVG Maps](https://www.amcharts.com/svg-maps/)
+* [Infraestructuras de Datos Espaciales](https://es.wikipedia.org/wiki/Infraestructura_de_datos_espaciales) (e.g. [IGN](https://www.ign.es/web/cbg-area-cartografia))
+* [OpenStreetMap](https://wiki.openstreetmap.org/)
+* ...
+
+##  {background-video="./video/protomaps.mp4" background-size="contain"}
+
+<!-- {{< video ./video/protomaps.mp4 controls autoplay >}} -->
+
+# CONCLUSIONES {.strongBg background-image="./imgs/victoriano-izquierdo-unsplash-conclusiones.jpg"  background-size="cover"}
+
+## Depende
+
+::: {.incremental}
+* Necesidades
+* Tipos de datos
+* Tipos de 
+:::
+
+
+## { background-image="./imgs/geoporra-travel-time.png"  background-size="cover"}
+
+
+
+<!-- # Casos más complejos 
+
+Datos medioambientales
+
+## Datos medioambientales {.smaller}
+
+::: {.panel-tabset}
+
+### Multimedia
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/layers-medialayer-video/live/" style="width:100%;height:500px"></iframe>
+
+### Temporales
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/layers-imagery-afrenderer/live/" style="width:100%;height:500px"></iframe>
+
+### Multidimensionales
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/layers-voxel-slices/live/" style="width:100%;height:500px"></iframe>
+
+### Simulaciones
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/scene-weather/live/" style="width:100%;height:500px"></iframe>
+
+:::
+
+::: {.notes}
+datos multidimensionales
+Voxel
+::: -->
+
+
+# ¡Gracias!{.center-title-slide}
+
+::: {.center-xy}
+[x.com/hhkaos](https://x.com/hhkaos) | [linkedin.com/in/jimenezortegaraul/](https://linkedin.com/in/jimenezortegaraul/)
+
+![](./imgs/thematic-mapping.png)
+
+<!-- {{< video ./video/flooding-arcgis-google-photorealistic-tiles.mp4 width="540" >}}
+
+Autor: [Miroslav Umlauf](https://www.linkedin.com/posts/mumlauf_it-is-amazing-to-watch-esri-pushing-arcgis-activity-7169932169384058880-8JIy/) -->
+:::

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css"/>
+  <script src="https://js.arcgis.com/4.29/"></script>
+  
+  <title>Load 45MB using a Feature Layer using ArcGIS Maps SDK for JavaScript & Esri basemap</title>
+  <style>#viewDiv,body,html{padding:0;margin:0;height:100%;width:100%}.esri-popup__button--dock,.esri-popup__button.esri-popup__action{display:none}.esri-view-width-xlarge .esri-popup__main-container{width:250px}.esri-feature {letter-spacing: 0em;line-height: 1.55rem;font-feature-settings: "liga"1, "calt"0;background: #fff;padding: 1em;}.esri-feature__content-element{padding: 0}.esri-feature__content-element p{margin:0}.esri-feature.esri-widget{width:400px; display:none}</style>
+</head>
+<body>
+  <div id="viewDiv"></div>
+  <script>    
+    require([ 
+      "esri/core/promiseUtils",
+      "esri/Map", 
+      "esri/views/MapView",
+      "esri/layers/GraphicsLayer",
+      "esri/widgets/Feature",
+      "esri/layers/FeatureLayer",
+      "esri/layers/WebTileLayer"
+    ], (
+      promiseUtils,
+      Map,
+      MapView,
+      GraphicsLayer,
+      Feature,
+      FeatureLayer,
+      WebTileLayer
+    ) => {  
+
+      const map = new Map({});
+    
+      const view = new MapView({
+        map: map,
+        container: "viewDiv",
+        center: [2.069802, 46.9244927],
+        zoom: 5
+      });
+
+      const osmLayer = new WebTileLayer({
+        urlTemplate: "https://{subDomain}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        subDomains: ["a", "b", "c"],
+        copyright: 'Map data from &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> Map design by &copy; <a href="http://opentopomap.org/" target="_blank">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC-BY-SA</a>) contributors'
+      });
+
+      map.add(osmLayer);
+      
+      const featureLayer = new FeatureLayer({
+        url: "https://services.arcgis.com/Q6ZFRRvMTlsTTFuP/ArcGIS/rest/services/median_income_by_commune_france/FeatureServer/0",
+        popupTemplate: {
+          title: "Municipio: {nom}"
+        }
+      });
+  
+      map.add(featureLayer);
+    
+    })
+  </script>
+</body>
+</html>

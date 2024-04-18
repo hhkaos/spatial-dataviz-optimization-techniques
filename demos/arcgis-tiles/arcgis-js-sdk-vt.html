@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css"/>
+  <script src="https://js.arcgis.com/4.29/"></script>
+  
+  <title>Load 45MB using Vector Tile Layer using ArcGIS Maps SDK for JavaScript & Esri basemap</title>
+  <style>#viewDiv,body,html{padding:0;margin:0;height:100%;width:100%}.esri-feature.esri-widget{width:400px; display:none}</style>
+</head>
+<body>
+  <div id="viewDiv"></div>
+  <script>    
+    require([ 
+      "esri/Map", 
+      "esri/views/MapView",
+      "esri/layers/Layer",
+      "esri/layers/WebTileLayer"
+    ], (
+      Map,
+      MapView,
+      Layer,
+      WebTileLayer
+    ) => {  
+
+      const map = new Map({});
+    
+      const view = new MapView({
+        map: map,
+        container: "viewDiv",
+        center: [2.069802, 46.9244927],
+        zoom: 5
+      });
+      
+      const osmLayer = new WebTileLayer({
+        urlTemplate: "https://{subDomain}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        subDomains: ["a", "b", "c"],
+        copyright: 'Map data from &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> Map design by &copy; <a href="http://opentopomap.org/" target="_blank">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank">CC-BY-SA</a>) contributors'
+      });
+
+      map.add(osmLayer);
+
+      Layer.fromPortalItem({
+        portalItem: {
+          // autocasts as new PortalItem()
+          id: "bc8a4fe10e02491989f5335e9cf5a306"
+        }
+      })
+        .then(addLayer)
+        .catch(rejection);
+
+      // Adds the layer to the map once it loads
+      function addLayer(layer) {
+        map.add(layer);
+      }
+
+      function rejection(error) {
+        console.log("Layer failed to load: ", error);
+      }
+
+    })
+  </script>
+</body>
+</html>

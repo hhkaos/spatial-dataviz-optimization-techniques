@@ -1,0 +1,92 @@
+/*-- scss:defaults --*/
+
+$body-bg: #191919;
+$body-color: #fff;
+$link-color: #42affa;
+
+/*-- scss:rules --*/
+body{
+  
+}
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+.center-xy,
+.quarto-figure-center figcaption,
+.center-title-slide h1,
+.center-title-slide h2{
+  text-align: center;
+}
+.center-xy iframe{
+  display: inline-block
+}
+.smallerTitle h1,
+.smallerTitle h2{
+  font-size: 1.7em !important;
+}
+.quarto-figure{
+  margin-bottom: 0;
+}
+#title-slide{
+  font-size: 2rem;
+}
+
+.quarto-title-authors a span{
+  color: #42affa;
+}
+
+#fluidez-de-la-interacción-1,
+#qué-podemos-optimizar,
+#tecnologías,
+#tiempo-de-carga-inicial,
+#conclusiones,
+#tiempos-de-carga,
+#costes-1{
+  padding: 2rem;
+}
+
+.strongBg{
+  background-color: #00000099;
+  
+  text-align: center;
+}
+.strongBg h1{
+  font-size: 4rem !important;
+}
+.fullWidth{
+  width: 100% !important;
+}
+
+.tiny blockquote {
+  font-size: 1.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.reveal div.sourceCode pre code{
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 1rem 0;
+}
+p.caption {
+  text-align: center;
+  font-style: italic;
+}
+
+.widthAutoCenter{
+  width: auto !important;
+  text-align: center;
+}
+.widthAutoCenter img{
+  width: 600px;
+}
+
+.reveal video{
+  max-width: none;
+  max-height: none;
+}
+.video-js{
+  display: inline-block!important;
+}
