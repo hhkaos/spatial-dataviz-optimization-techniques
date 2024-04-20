@@ -327,7 +327,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-background-image="./imgs/intro-slide.png" data-background-opacity="0.5" data-background-size="contain" class="quarto-title-block center">
   <h1 class="title">Técnicas de optimización para visualización en mapas 🗺️</h1>
 
 <div class="quarto-title-authors">
@@ -346,7 +346,7 @@ Raúl Jiménez Ortega | <a href="https://x.com/hhkaos"><span class="citation" da
 <p><img data-src="./imgs/commit-conf-logo-white.png" width="250"></p>
 </div>
 <aside class="notes">
-<p>Quería empezar contandoos algo que me pasó por estas fechas hacer 10 años,marzo/abril de 2014, nada más empezar mi nuevo trabajo en mapas. Se acercaba la final de la champios league (Madrid - Atlético) …</p>
+<p>preguntar por experiencia visualizando datos en mapas Quería contaros cómo fue mi primera experiencia (o drama) empezar contandoos algo que me pasó por estas fechas hacer 10 años,marzo/abril de 2014, nada más empezar mi nuevo trabajo en mapas. Se acercaba la final de la champios league (Madrid - Atlético) …</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -359,11 +359,14 @@ Raúl Jiménez Ortega | <a href="https://x.com/hhkaos"><span class="citation" da
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-1" class="slide level2 center-title-slide smallerTitle">
-<h2>24/05/14</h2>
-<div class="center-xy">
-<iframe data-external="1" src="https://www.youtube.com/embed/DF6XU5Rp9qk?si=7ZXrRYYBEEeRZh9Y" width="840" height="472" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-</div>
+<section id="section-1" class="slide level2" data-background-video="./video/geoporra.mp4" data-background-size="contain">
+<h2></h2>
+<!-- {.center-title-slide .smallerTitle} -->
+<!-- ::: {.center-xy}
+
+
+
+::: -->
 <aside class="notes">
 <p>Geoporra (2014) -&gt; PostgreSQL Final de la Champions League Contar la historia. Yo nuevo en mapas, vamos a crear unos índices espaciales, postgres…. petaba</p>
 <p>Periódico, página de clasificados, b2b, agencias</p>
@@ -388,7 +391,6 @@ Es relativamente frecuente que a las 8:31PM cuando se cierran las urnas y empiez
 ::: -->
 <!-- ## Elecciones municipales 2019
 
-
 [![Elecciones municipales](https://esri-es.github.io/arcgis-gifs/other/Votos%20rentas%20escuelas%20o%20turistas%20nueve%20mapas%20muy%20detallados%20de%202019%20elpais.gif)](https://elpais.com/politica/2019/12/30/actualidad/1577728404_034592.html){width="550"}
 
 ::: {.notes}
@@ -403,18 +405,18 @@ Periodista de datos
 <li class="fragment">Padre de familia 👨‍👩‍👦‍👦</li>
 <li class="fragment"><a href="https://www.rauljimenez.info/docs/about-me/my-journey">Geek</a> 👨🏻‍💻</li>
 <li class="fragment">Product Engineer @ <a href="https://developers.arcgis.com/">Esri</a> 🥑🇺🇸</li>
-<li class="fragment">10 años en <em>geo</em> 🗺️🌍</li>
+<li class="fragment">10 años de 🗺️🌍</li>
 </ul>
 </div>
 <p><img data-src="./imgs/raul-jimenez.png" class="absolute" style="bottom: 0px; right: 50px; width: 250px; "></p>
 </section>
 
 <section>
-<section id="qué-podemos-optimizar" class="title-slide slide level1 strongBg center" data-background-image="./imgs/leaflet-large-dataset-plain-blur.png" data-background-size="cover">
+<section id="qué-podemos-optimizar" class="title-slide slide level1 strongBg center" data-background-image="./imgs/chris-liverani-speedometer-unsplash.jpg" data-background-size="cover">
 <h1>¿Qué podemos optimizar?</h1>
 
 </section>
-<section id="tiempos-de-carga-inicial" class="slide level2">
+<section id="tiempos-de-carga-inicial" class="slide level2 smallerTitle">
 <h2>1. Tiempos de carga inicial</h2>
 
 <!--  -->
@@ -440,12 +442,14 @@ Periodista de datos
           display:block!important;
       }</style></aside>
 </section>
-<section id="costes" class="slide level2">
+<section id="costes" class="slide level2 smallerTitle">
 <h2>3. Costes</h2>
 
-<img data-src="./imgs/basemaps-pricing-models.png" class="r-stretch"><blockquote>
-<p><strong>Fuente</strong>: <a href="https://www.youtube.com/watch?v=SBf8d6PeJMQ&amp;t=613s">Intro a los mapas base y ArcGIS Basemaps (v2)</a></p>
+<img data-src="./imgs/basemaps-pricing-models.png" class="r-stretch quarto-figure-center"><p class="caption">Modelos de precios de mapas base</p><div class="tiny">
+<blockquote>
+<p>Ver: <a href="https://www.youtube.com/watch?v=SBf8d6PeJMQ&amp;t=613s">Intro a los mapas base</a></p>
 </blockquote>
+</div>
 </section></section>
 <section>
 <section id="tecnologías" class="title-slide slide level1 strongBg center" data-background-image="./imgs/state-of-the-art-mapping.png" data-background-size="cover">
@@ -545,8 +549,7 @@ Periodista de datos
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Ejemplo</a></li><li><a href="#tabset-3-2">Código</a></li><li><a href="#tabset-3-3">Tecnologías</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<iframe src="https://www.ign.es/iberpix/visor/" style="width:100%;height:520px">
-</iframe>
+<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./video/ign-iberpix.mp4"></video>
 </div>
 <div id="tabset-3-2">
 <p><img data-src="./imgs/canvas2d-map.jpg"></p>
@@ -581,10 +584,10 @@ Periodista de datos
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Ejemplo</a></li><li><a href="#tabset-4-2">Código</a></li><li><a href="#tabset-4-3">Tecnologías</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./video/inmerse-dataviz.mp4"></video>
+<video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./video/inmerse-dataviz.mp4"></video>
 </div>
 <div id="tabset-4-2">
-<video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./video/webgl-canvas.mp4"></video>
+<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./video/webgl-canvas.mp4"></video>
 </div>
 <div id="tabset-4-3">
 <ul>
@@ -606,7 +609,7 @@ Periodista de datos
 <h2></h2>
 </section></section>
 <section>
-<section id="tiempos-de-carga" class="title-slide slide level1 strongBg center" data-background-image="./imgs/title-loading-times.png" data-background-size="cover">
+<section id="tiempos-de-carga" class="title-slide slide level1 strongBg center" data-background-image="./imgs/time-stopwatch.jpg" data-background-size="cover">
 <h1>TIEMPOS DE CARGA</h1>
 <p>Optimizando <em>datasets</em> de cientos de miles o millones de datos y tiempos de respuesta del servidor</p>
 </section>
@@ -616,8 +619,8 @@ Periodista de datos
 <img data-src="./imgs/algorithm-compression-ratios-opencpu.png" class="r-stretch quarto-figure-center"><p class="caption">Ratio, tiempo de compresión y descompresión por algoritmo | Fuente: OpenCPU</p></section>
 <section id="geojson-estándard-rfc-7946" class="slide level2 smaller">
 <h2>GeoJSON estándard (<a href="https://datatracker.ietf.org/doc/html/rfc7946">RFC 7946</a>)</h2>
-
-<img data-src="./imgs/geojson-explained.png" class="r-stretch"></section>
+<p><a href="./imgs/geojson-explained.png"><img data-src="./imgs/geojson-explained.png"></a></p>
+</section>
 <section id="reduce-el-tamaño-del-dataset" class="slide level2 smaller">
 <h2>Reduce el tamaño del <em>dataset</em></h2>
 
@@ -646,7 +649,7 @@ Periodista de datos
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">TopoJSON</a></li><li><a href="#tabset-5-2">Convierte y simplifica</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<p><img data-src="./imgs/topojson-explained.png"></p>
+<p><a href="./imgs/topojson-explained.png"><img data-src="./imgs/topojson-explained.png"></a></p>
 </div>
 <div id="tabset-5-2">
 <iframe src="https://mapshaper.org/" style="width:100%;height:520px">
@@ -692,6 +695,7 @@ Periodista de datos
 <ul>
 <li><a href="https://developers.arcgis.com/documentation/mapping-apis-and-services/data-hosting/">ArcGIS Data Hosting</a></li>
 <li><a href="http://geoserver.org/">GeoServer</a></li>
+<li><a href="https://www.osgeo.org/projects/koop/">Koop</a></li>
 <li><a href="https://www.mapbox.com/mts">Mapbox Tiling Service</a></li>
 <li><a href="https://www.maptiler.com/cloud/geodata-hosting/">MapTiler GeoData Hosting</a></li>
 <li><a href="https://mapserver.org/">MapServer</a></li>
@@ -720,7 +724,7 @@ Periodista de datos
 <li>Agrupación = <em>Clustering</em> 🔍</li>
 <li>Mapas de calor = <em>Heatmaps</em> 🔥</li>
 <li>“Contenerización” = <em>Binning</em> 📦</li>
-<li>Analisis en cliente = <em>Client-side analysis</em> 📏📐</li>
+<li>Análisis en cliente = <em>Client-side analysis</em> 📏📐</li>
 </ul>
 <aside class="notes">
 <p>Optimizar la renderización/pintado (webgl, renderers) Reducir los tiempos de respuesta (usa la info en el browser) Usa WebGL para grandes cantidades de datos Mueve la máxima cantidad al cliente</p>
@@ -755,7 +759,7 @@ Periodista de datos
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Intro</a></li><li><a href="#tabset-7-2">Clase predominante</a></li><li><a href="#tabset-7-3">Estadísticas</a></li><li><a href="#tabset-7-4">Variables visuales</a></li><li><a href="#tabset-7-5">Gráfico circular</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./video/before-after-clustering.mp4"></video>
+<video id="video_shortcode_videojs_video6" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./video/before-after-clustering.mp4"></video>
 </div>
 <div id="tabset-7-2">
 <iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurereduction-cluster-query/live/" style="width:100%;height:500px">
@@ -822,10 +826,26 @@ Periodista de datos
 <section id="haz-todo-lo-que-puedas-en-cliente" class="slide level2 smaller">
 <h2>Haz todo lo que puedas en cliente</h2>
 <div class="panel-tabset">
-<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Análisis espacial</a></li></ul>
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Análisis espacial</a></li><li><a href="#tabset-10-2">Cálculos geométricos</a></li><li><a href="#tabset-10-3">Estadísticas</a></li><li><a href="#tabset-10-4">Filtrado</a></li><li><a href="#tabset-10-5">Pixel</a></li></ul>
 <div class="tab-content">
 <div id="tabset-10-1">
+<iframe src="https://developers.arcgis.com/documentation/demo-apps/mapping-apis-and-services-spatial-analysis-code-geometry-analysis-spatial-relationships-demo-33c89f5c18c7a540ad5332971a601900.html" style="width:100%;height:500px">
+</iframe>
+</div>
+<div id="tabset-10-2">
+<iframe src="https://developers.arcgis.com/documentation/demo-apps/mapping-apis-and-services-spatial-analysis-code-geometry-analysis-geometry-calculations-demo-df70d5868c1b40f881b95762d0af0d17.html" style="width:100%;height:500px">
+</iframe>
+</div>
+<div id="tabset-10-3">
 <iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurelayerview-query-geometry/live/" style="width:100%;height:500px">
+</iframe>
+</div>
+<div id="tabset-10-4">
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/layers-imagery-pixelvalues/live/" style="width:100%;height:500px">
+</iframe>
+</div>
+<div id="tabset-10-5">
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/layers-imagery-clientside/live/" style="width:100%;height:500px">
 </iframe>
 </div>
 </div>
@@ -861,6 +881,14 @@ Periodista de datos
 <li>…</li>
 </ul>
 </section>
+<section id="dataviz" class="slide level2">
+<h2>Dataviz</h2>
+
+<img data-src="./imgs/BASEmap-vs-baseMAP.plates.png" class="r-stretch"></section>
+<section id="dataviz-1" class="slide level2">
+<h2>Dataviz</h2>
+
+<img data-src="./imgs/BASEmap-vs-baseMAP.maps.png" class="r-stretch"></section>
 <section id="section-3" class="slide level2" data-background-video="./video/protomaps.mp4" data-background-size="contain">
 <h2></h2>
 <!--  -->
@@ -870,13 +898,21 @@ Periodista de datos
 <h1>CONCLUSIONES</h1>
 
 </section>
-<section id="depende" class="slide level2">
-<h2>Depende</h2>
+<section id="cuál-es-la-mejor-tecnología" class="slide level2">
+<h2>¿Cuál es la mejor tecnología?</h2>
+</section>
+<section id="cuál-es-la-mejor-tecnología-1" class="slide level2">
+<h2>¿Cuál es la mejor tecnología?</h2>
+<p>Depende del caso de uso, y de las necesidades:</p>
 <div>
 <ul>
-<li class="fragment">Necesidades</li>
-<li class="fragment">Tipos de datos</li>
-<li class="fragment">Tipos de</li>
+<li class="fragment">🎨 De diseño / personalización</li>
+<li class="fragment">🤏 De interacción</li>
+<li class="fragment">📦 De los tipos de datos</li>
+<li class="fragment">📱 De los dispositivos</li>
+<li class="fragment">⏱️ De tiempos de carga</li>
+<li class="fragment">🧑‍🦽 De accesibilidad</li>
+<li class="fragment">…</li>
 </ul>
 </div>
 </section>
@@ -916,11 +952,10 @@ Voxel
 <section id="gracias" class="title-slide slide level1 center-title-slide center">
 <h1>¡Gracias!</h1>
 <div class="center-xy">
-<p><a href="https://x.com/hhkaos">x.com/hhkaos</a> | <a href="https://linkedin.com/in/jimenezortegaraul/">linkedin.com/in/jimenezortegaraul/</a></p>
-<p><img data-src="./imgs/thematic-mapping.png"></p>
-<!-- 
-
-Autor: [Miroslav Umlauf](https://www.linkedin.com/posts/mumlauf_it-is-amazing-to-watch-esri-pushing-arcgis-activity-7169932169384058880-8JIy/) -->
+<p><a href="https://x.com/hhkaos">x.com/hhkaos</a> | <a href="https://hhkaos.github.io/ppt-dataviz/">github.com/hhkaos/ppt-dataviz/</a></p>
+<!-- ![](./imgs/thematic-mapping.png) -->
+<video id="video_shortcode_videojs_video8" width="540" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="./video/flooding-arcgis-google-photorealistic-tiles.mp4"></video>
+<p>Autor: <a href="https://www.linkedin.com/posts/mumlauf_it-is-amazing-to-watch-esri-pushing-arcgis-activity-7169932169384058880-8JIy/">Miroslav Umlauf</a></p>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -1321,6 +1356,7 @@ Autor: [Miroslav Umlauf](https://www.linkedin.com/posts/mumlauf_it-is-amazing-to
     <script>videojs(video_shortcode_videojs_video5);</script>
     <script>videojs(video_shortcode_videojs_video6);</script>
     <script>videojs(video_shortcode_videojs_video7);</script>
+    <script>videojs(video_shortcode_videojs_video8);</script>
     
 
 </body></html>

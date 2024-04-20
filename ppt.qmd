@@ -4,6 +4,10 @@ author: "Raúl Jiménez Ortega | [@hhkaos](https://x.com/hhkaos)"
 format: 
   revealjs:
     theme: [dark, custom.scss]
+title-slide-attributes:
+  data-background-image: ./imgs/intro-slide.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
 ---
 
 
@@ -16,16 +20,19 @@ format:
 :::
 
 ::: {.notes}
-Quería empezar contandoos algo que me pasó por estas fechas hacer 10 años,marzo/abril de 2014, nada más empezar mi nuevo trabajo en mapas. Se acercaba la final de la champios league (Madrid - Atlético) ...
+preguntar por experiencia visualizando datos en mapas 
+Quería contaros cómo fue mi primera experiencia (o drama)
+ empezar contandoos algo que me pasó por estas fechas hacer 10 años,marzo/abril de 2014, nada más empezar mi nuevo trabajo en mapas. Se acercaba la final de la champios league (Madrid - Atlético) ...
 :::
 
-## 24/05/14 {.center-title-slide .smallerTitle}
+## {background-video="./video/geoporra.mp4" background-size="contain"} 
+<!-- {.center-title-slide .smallerTitle} -->
 
-::: {.center-xy}
+<!-- ::: {.center-xy}
 
 {{< video https://www.youtube.com/embed/DF6XU5Rp9qk?si=7ZXrRYYBEEeRZh9Y  width="840" height="472">}}
 
-:::
+::: -->
 
 
 ::: {.notes}
@@ -47,7 +54,6 @@ Es relativamente frecuente que a las 8:31PM cuando se cierran las urnas y empiez
 
 <!-- ## Elecciones municipales 2019
 
-
 [![Elecciones municipales](https://esri-es.github.io/arcgis-gifs/other/Votos%20rentas%20escuelas%20o%20turistas%20nueve%20mapas%20muy%20detallados%20de%202019%20elpais.gif)](https://elpais.com/politica/2019/12/30/actualidad/1577728404_034592.html){width="550"}
 
 ::: {.notes}
@@ -62,15 +68,15 @@ Periodista de datos
 * Padre de familia 👨‍👩‍👦‍👦
 * [Geek](https://www.rauljimenez.info/docs/about-me/my-journey) 👨🏻‍💻
 * Product Engineer @ [Esri](https://developers.arcgis.com/) 🥑🇺🇸
-* 10 años en _geo_ 🗺️🌍
+* 10 años de 🗺️🌍
 
 :::
 
 ![](./imgs/raul-jimenez.png){.absolute bottom=0 right=50 width="250"}
 
-# ¿Qué podemos optimizar? {.strongBg background-image="./imgs/leaflet-large-dataset-plain-blur.png"  background-size="cover"}
+# ¿Qué podemos optimizar? {.strongBg background-image="./imgs/chris-liverani-speedometer-unsplash.jpg"  background-size="cover"}
 
-## 1. Tiempos de carga inicial
+## 1. Tiempos de carga inicial{.smallerTitle}
 
 ![](./imgs/initial-loading-time-comparison.gif){.fullWidth}
 
@@ -85,11 +91,13 @@ FPS
 Visor web usando &lt;svg&gt; para pintar ~35K municipios de Francia <br/>(45MB de JSON; 2.10M vértices)
 :::
 
-## 3. Costes
+## 3. Costes{.smallerTitle}
 
-![](./imgs/basemaps-pricing-models.png)
+![Modelos de precios de mapas base](./imgs/basemaps-pricing-models.png)
 
-> **Fuente**: [Intro a los mapas base y ArcGIS Basemaps (v2)](https://www.youtube.com/watch?v=SBf8d6PeJMQ&t=613s)
+:::{.tiny}
+> Ver: [Intro a los mapas base](https://www.youtube.com/watch?v=SBf8d6PeJMQ&t=613s)
+:::
 
 # TECNOLOGÍAS {.strongBg background-image="./imgs/state-of-the-art-mapping.png"  background-size="cover"}
 
@@ -174,7 +182,8 @@ Buscador de direcciones. Mayores extensiones. Todos permiten mapas de fondo, map
 
 ### Ejemplo
 
-<iframe src="https://www.ign.es/iberpix/visor/" style="width:100%;height:520px"></iframe>
+{{< video ./video/ign-iberpix.mp4 >}}
+
 
 ### Código
 
@@ -221,7 +230,7 @@ WebGL/OpenGL, mayor número de elementos, efectos tipo photoshop,  personalizar 
 
 ##  {background-color="white" background-image="./imgs/map-types-comparison-IMGs-SVG-Canvas-WebGL.png"  background-size="contain"}
 
-# TIEMPOS DE CARGA{.strongBg background-image="./imgs/title-loading-times.png"  background-size="cover"}
+# TIEMPOS DE CARGA{.strongBg background-image="./imgs/time-stopwatch.jpg"  background-size="cover"}
 
 Optimizando _datasets_ de cientos de miles o millones de datos y tiempos de respuesta del servidor
 
@@ -231,7 +240,7 @@ Optimizando _datasets_ de cientos de miles o millones de datos y tiempos de resp
 
 ## GeoJSON estándard ([RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946)){.smaller}
 
-![](./imgs/geojson-explained.png)
+[![](./imgs/geojson-explained.png)](./imgs/geojson-explained.png)
 
 ## Reduce el tamaño del _dataset_{.smaller}
 
@@ -251,7 +260,7 @@ Las coordenadas GeoJSON suelen tener por defecto una precisión extrema, a menud
 
 ### TopoJSON
 
-![](./imgs/topojson-explained.png)
+[![](./imgs/topojson-explained.png)](./imgs/topojson-explained.png)
 
 ### Convierte y simplifica
 
@@ -289,6 +298,7 @@ Data Chunking y visualizaciones sensibles a la escala
 
 * [ArcGIS Data Hosting](https://developers.arcgis.com/documentation/mapping-apis-and-services/data-hosting/)
 * [GeoServer](http://geoserver.org/)
+* [Koop](https://www.osgeo.org/projects/koop/)
 * [Mapbox Tiling Service](https://www.mapbox.com/mts)
 * [MapTiler GeoData Hosting](https://www.maptiler.com/cloud/geodata-hosting/)
 * [MapServer](https://mapserver.org/)
@@ -317,7 +327,7 @@ Data Chunking y visualizaciones sensibles a la escala
 * Agrupación = _Clustering_ 🔍
 * Mapas de calor = _Heatmaps_ 🔥
 * "Contenerización" = _Binning_ 📦
-* Analisis en cliente = _Client-side analysis_ 📏📐
+* Análisis en cliente = _Client-side analysis_ 📏📐
 
 ::: {.notes}
 Optimizar la renderización/pintado (webgl, renderers)
@@ -403,7 +413,24 @@ para datos de tipo punto
 ::: {.panel-tabset}
 
 ### Análisis espacial
+
+<iframe src="https://developers.arcgis.com/documentation/demo-apps/mapping-apis-and-services-spatial-analysis-code-geometry-analysis-spatial-relationships-demo-33c89f5c18c7a540ad5332971a601900.html"  style="width:100%;height:500px"></iframe>
+
+### Cálculos geométricos
+
+<iframe src="https://developers.arcgis.com/documentation/demo-apps/mapping-apis-and-services-spatial-analysis-code-geometry-analysis-geometry-calculations-demo-df70d5868c1b40f881b95762d0af0d17.html"  style="width:100%;height:500px"></iframe>
+
+### Estadísticas
+
 <iframe src="https://developers.arcgis.com/javascript/latest/sample-code/featurelayerview-query-geometry/live/"  style="width:100%;height:500px"></iframe>
+
+### Filtrado
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/layers-imagery-pixelvalues/live/"  style="width:100%;height:500px"></iframe>
+
+### Pixel
+
+<iframe src="https://developers.arcgis.com/javascript/latest/sample-code/layers-imagery-clientside/live/"  style="width:100%;height:500px"></iframe>
 
 :::
 
@@ -423,18 +450,34 @@ usando blending
 * [OpenStreetMap](https://wiki.openstreetmap.org/)
 * ...
 
+## Dataviz
+
+![](./imgs/BASEmap-vs-baseMAP.plates.png)
+
+## Dataviz
+
+![](./imgs/BASEmap-vs-baseMAP.maps.png)
+
 ##  {background-video="./video/protomaps.mp4" background-size="contain"}
 
 <!-- {{< video ./video/protomaps.mp4 controls autoplay >}} -->
 
 # CONCLUSIONES {.strongBg background-image="./imgs/victoriano-izquierdo-unsplash-conclusiones.jpg"  background-size="cover"}
 
-## Depende
+## ¿Cuál es la mejor tecnología?
+
+## ¿Cuál es la mejor tecnología?
+
+Depende del caso de uso, y de las necesidades:
 
 ::: {.incremental}
-* Necesidades
-* Tipos de datos
-* Tipos de 
+* 🎨 De diseño / personalización
+* 🤏 De interacción
+* 📦 De los tipos de datos
+* 📱 De los dispositivos
+* ⏱️ De tiempos de carga
+* 🧑‍🦽 De accesibilidad
+* ...
 :::
 
 
@@ -477,11 +520,11 @@ Voxel
 # ¡Gracias!{.center-title-slide}
 
 ::: {.center-xy}
-[x.com/hhkaos](https://x.com/hhkaos) | [linkedin.com/in/jimenezortegaraul/](https://linkedin.com/in/jimenezortegaraul/)
+[x.com/hhkaos](https://x.com/hhkaos) | [github.com/hhkaos/ppt-dataviz/](https://hhkaos.github.io/ppt-dataviz/)
 
-![](./imgs/thematic-mapping.png)
+<!-- ![](./imgs/thematic-mapping.png) -->
 
-<!-- {{< video ./video/flooding-arcgis-google-photorealistic-tiles.mp4 width="540" >}}
+{{< video ./video/flooding-arcgis-google-photorealistic-tiles.mp4 width="540" >}}
 
-Autor: [Miroslav Umlauf](https://www.linkedin.com/posts/mumlauf_it-is-amazing-to-watch-esri-pushing-arcgis-activity-7169932169384058880-8JIy/) -->
+Autor: [Miroslav Umlauf](https://www.linkedin.com/posts/mumlauf_it-is-amazing-to-watch-esri-pushing-arcgis-activity-7169932169384058880-8JIy/)
 :::
