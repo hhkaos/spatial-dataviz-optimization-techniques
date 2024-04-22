@@ -1,6 +1,9 @@
-# Técnicas de optimización para visualización en mapas 🗺️
+# Map visualization optimization techniques 🗺️
 
-Slides: [https://hhkaos.github.io/spatial-dataviz-optimization-techniques/](https://hhkaos.github.io/spatial-dataviz-optimization-techniques/)
+
+Slides:
+* English: [Map visualization optimization techniques 🗺️](https://hhkaos.github.io/spatial-dataviz-optimization-techniques/index-en.html)
+* Spanish: [Técnicas de optimización para visualización en mapas 🗺️](https://hhkaos.github.io/spatial-dataviz-optimization-techniques/)
 
 ![First slide](./imgs/first-slide.png)
 
