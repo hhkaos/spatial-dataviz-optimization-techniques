@@ -12,8 +12,8 @@ Slides:
 
 Development mode:
 
-`quarto preview index.qmd --no-browser --no-watch-inputs`
+`quarto preview index.qmd --verbose` or `quarto preview index.qmd --no-browser --no-watch-inputs`
 
 Build:
 
-`quarto render /Users/ral97612/workspace/ppt-dataviz/ppt.qmd --to revealjs`
+`quarto render /Users/ral97612/workspace/spatial-dataviz-optimization-techniques/index.qmd --to revealjs`

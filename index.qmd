@@ -4,12 +4,12 @@ format:
     theme: [simple, custom.scss]
 ---
 
-# { .center-title-slide .smallerTitle background-image="/imgs/1.tecnologias.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+# { .center-title-slide .smallerTitle background-image="./imgs/1.tecnologias.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 
-## Mapas estáticos { .center-title-slide .mt-32 .smallerTitle background-image="/imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Mapas estáticos { .center-title-slide .mt-32 .smallerTitle background-image="./imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
-## {.smallerTitle background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ::: {.panel-tabset}
 
@@ -38,9 +38,9 @@ Las posibilidades varian entre proveedores
 
 :::
 
-## Mapas dinámicos {.smallerTitle .mt-32 background-image="/imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Mapas dinámicos {.smallerTitle .mt-32 background-image="./imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
-## {.smallerTitle background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ::: {.panel-tabset}
 
@@ -65,9 +65,9 @@ Las posibilidades varian entre proveedores
 
 :::
 
-## Mapas interactivos {.smallerTitle .mt-32 background-image="/imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Mapas interactivos {.smallerTitle .mt-32 background-image="./imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
-## {.smallerTitle background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ::: {.notes}
 usan una combinación de canvas y SVG (Limitados a 2D. )
@@ -96,9 +96,9 @@ Buscador de direcciones. Mayores extensiones. Todos permiten mapas de fondo, map
 
 :::
 
-## Mapas inmersivos {.center-title-slide .mt-32 background-image="/imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Mapas inmersivos {.center-title-slide .mt-32 background-image="./imgs/slides-bg-2.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
-## {.smallerTitle background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ::: {.notes}
 WebGL/OpenGL, mayor número de elementos, efectos tipo photoshop,  personalizar cambiar el estilo del mapa, rotarlo, 3D,
@@ -127,21 +127,21 @@ WebGL/OpenGL, mayor número de elementos, efectos tipo photoshop,  personalizar 
 
 :::
 
-# { .center-title-slide .smallerTitle background-image="/imgs/2.tiempos-de-carga.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+# { .center-title-slide .smallerTitle background-image="./imgs/2.tiempos-de-carga.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
-## {.smallerTitle .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 Reduce los _bytes_ enviados por la red
 
 ![Ratio, tiempo de compresión y descompresión por algoritmo | Fuente: OpenCPU](./imgs/algorithm-compression-ratios-opencpu.png)
 
-## {.smallerTitle .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 GeoJSON estándard ([RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946)) 
 
 [![](./imgs/geojson-explained.png)](./imgs/geojson-explained.png){width="600"}
 
-## {.smallerTitle .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 Reduce el tamaño del _dataset_
 
@@ -155,7 +155,7 @@ Reduce el tamaño del _dataset_
 Las coordenadas GeoJSON suelen tener por defecto una precisión extrema, a menudo con 15-17 decimales, lo que equivale a una escala atómica. Para la mayoría de las aplicaciones prácticas, se puede reducir la precisión de las coordenadas a unos 6 decimales, lo que equivale aproximadamente a una escala de 1 cm. Esto reduce el tamaño del archivo sin comprometer la usabilidad.
 :::
 
-## {.smallerTitle .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ::: {.panel-tabset}
 
@@ -169,7 +169,7 @@ Las coordenadas GeoJSON suelen tener por defecto una precisión extrema, a menud
 
 :::
 
-## {.smallerTitle .smaller .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .smaller .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ::: {.notes}
 Data Chunking y visualizaciones sensibles a la escala
@@ -208,13 +208,13 @@ Data Chunking y visualizaciones sensibles a la escala
 
 :::
 
-## Cachea, cachea, cachea! {.smallerTitle .center  .center-title-slide background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Cachea, cachea, cachea! {.smallerTitle .center  .center-title-slide background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 :::widthAutoCenter
 ![](./imgs/memory-cache-meme.gif)
 :::
 
-## Crea índices espaciales{.smaller .smallerTitle .center  .center-title-slide background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Crea índices espaciales{.smaller .smallerTitle .center  .center-title-slide background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ![](./imgs/spatial-index.jpg)
 
@@ -223,7 +223,7 @@ Data Chunking y visualizaciones sensibles a la escala
 <!-- ## Streaming de datos -->
 
 
-# { .center-title-slide .smallerTitle background-image="/imgs/3-fluidez-de-la-interaccion.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+# { .center-title-slide .smallerTitle background-image="./imgs/3-fluidez-de-la-interaccion.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ::: {.notes}
 Optimizar la renderización/pintado (webgl, renderers)
@@ -232,7 +232,7 @@ Usa WebGL para grandes cantidades de datos
 Mueve la máxima cantidad al cliente
 :::
 
-## {.smallerTitle .smaller .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .smaller .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 :::{.notes}
 clustering. para datos de tipo punto
@@ -263,7 +263,7 @@ clustering. para datos de tipo punto
 
 :::
 
-## {.smallerTitle .smaller .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .smaller .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 :::{.notes}
 Heatmaps 🔥 
@@ -291,7 +291,7 @@ Heatmaps 🔥
 
 :::
 
-## {.smallerTitle .smaller .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .smaller .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 :::{.notes}
 Binning 📦
@@ -314,7 +314,7 @@ Binning 📦
 
 :::
 
-## {.smallerTitle .smaller .center-grid background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## {.smallerTitle .smaller .center-grid background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 :::{.notes}
 Haz todo lo que puedas en el cliente
@@ -348,9 +348,9 @@ Haz todo lo que puedas en el cliente
 usando blending
 :::
 
-# { .center-title-slide .smallerTitle background-image="/imgs/4.costes.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+# { .center-title-slide .smallerTitle background-image="./imgs/4.costes.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
-## Open data {.center-grid .mt-7 background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Open data {.center-grid .mt-7 background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 * [amCharts geodata](https://www.amcharts.com/dl/amcharts5-geodata/)
 * [ArcGIS Hub](hub.arcgis.com)
@@ -360,11 +360,11 @@ usando blending
 * [OpenStreetMap](https://wiki.openstreetmap.org/)
 * ...
 
-## Dataviz{.center-grid .mt-3 background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Dataviz{.center-grid .mt-3 background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ![](./imgs/BASEmap-vs-baseMAP.plates.png)
 
-## Dataviz{.center-grid .mt-3 background-image="/imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
+## Dataviz{.center-grid .mt-3 background-image="./imgs/slides-bg.png" background-size="contain" background-repeat="no-repeat" background-position="center"}
 
 ![](./imgs/BASEmap-vs-baseMAP.maps.png)
 
