@@ -1,16 +1,40 @@
 /*-- scss:defaults --*/
 
-$body-bg: #191919;
-$body-color: #fff;
-$link-color: #42affa;
+$body-bg: #ffffff;
+$body-color: #111E2F;
+$link-color: #EC682C;
+
+$presentation-heading-font: "IBM Plex Sans", 'Sans serif', serif !default;
+$presentation-heading-color: #111E2F !default;
 
 /*-- scss:rules --*/
-body{
-  
+body,
+h1,h2,h3{
+  font-family: "IBM Plex Sans" !important;
 }
 .reveal .slide blockquote {
   border-left: 3px solid $text-muted;
   padding-left: 0.5em;
+}
+
+body{
+  background-image: url('imgs/slides-bg.png') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mt-32 h2{
+  margin-top:32%;
+}
+.mt-3 h2{
+  margin-top:3%;
+}
+.mt-7 h2{
+  margin-top:7%;
+}
+
+.center-grid{
+  display: grid !important;
 }
 
 .center-xy,

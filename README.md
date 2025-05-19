@@ -12,7 +12,7 @@ Slides:
 
 Development mode:
 
-`quarto preview /Users/ral97612/workspace/ppt-dataviz/ppt.qmd --no-browser --no-watch-inputs`
+`quarto preview index.qmd --no-browser --no-watch-inputs`
 
 Build:
 
